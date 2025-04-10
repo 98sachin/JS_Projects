@@ -1,0 +1,62 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #c8f15f;
+}
+
+.btn {
+  text-decoration: none;
+  color: #000;
+  padding: 20px 40px;
+  border-radius: 22px;
+  background-color: #ed5e05;
+  box-shadow: 0px 10px 20px #055e05;
+  position: relative;
+  font-size: larger;
+  font-weight: bolder;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  background-color: #ddf507;
+  /* width: 20px;
+  height: 20px; */ /* initial size of the ripple effect while writing the css only */
+
+  /* below is the width and height to integrate with the javascript */
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  position: absolute;
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */ /* center the ripple effect while writing the css only */
+
+  /* below is the ripple effect(top & left) to integrate with javascript */
+  top: var(--positionY);
+  left: var(--positionX);
+  transform: translate(-50%, -50%);
+
+  transition: width 1s, height 1s;
+}
+
+.btn:hover::before {
+  width: 200px;
+  height: 200px;
+  /* animation: ripple 1s linear; */
+}
+
+.btn span {
+  position: relative;
+  z-index: 1;
+}
